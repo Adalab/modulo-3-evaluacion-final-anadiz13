@@ -3,13 +3,14 @@ import React from "react";
 const CharacterCard = (props) => {
   return (
     <>
+      {/* añadir por aquí un Link que vaya /detail/props...id */}
       <img
         className="card__image"
-        src="https://rickandmortyapi.com/api/location/1"
+        src={props.character.image}
         alt="foto del personaje"
       />
-      <h2 className="card__title">Nombre</h2>
-      <h4 className="card__type">Especie</h4>
+      <h2 className="card__title"> {props.character.name}</h2>
+      <h4 className="card__type">{props.character.type}</h4>
     </>
   );
 };
