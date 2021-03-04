@@ -1,16 +1,26 @@
 import React from "react";
 import Header from "./Header";
-import photo from "../images/photo.jpeg";
+import photo from "../images/RickandMorty.jpeg";
 import "../stylesheets/App.scss";
+import CharacterList from "./CharacterList";
+import Filters from "./Filters";
+import GetDataFromApi from "../services/getDataFromApi";
 
-function App() {
+const App = () => {
   return (
-    <div>
-      <Header />
-      Hola mundo
-      <img src={photo} />
-    </div>
+    <>
+      <h1 className="title__list">Listado de Personajes</h1>
+
+      <div>
+        <Header />
+        <img src={photo} />
+      </div>
+      <div>
+        <Filters />
+        <CharacterList />
+      </div>
+    </>
   );
-}
+};
 
 export default App;

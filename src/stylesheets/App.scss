@@ -1,4 +1,48 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+// .App {
+//   width: 100%;
+//   list-style: none;
+//   background-color: rgb(236, 75, 102);
+// }
+
+.title__list {
+  font-size: 25px;
+  color: white;
+  text-align: center;
+}
+
+// }
+// .container {
+//   margin: 40px 12vw;
+//   border-radius: 30px;
+//   padding-bottom: 20px;
+// }
+
+//characterCard
+.list__cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  list-style: none;
+  background-color: coral;
+}
+.form__input {
+  border: cadetblue;
+  background-color: coral;
+}
+
+.card__title {
+  padding: 40px;
+  text-align: center;
+  color: bisque;
+}
+.card__title {
+  padding: 40px;
+  text-align: center;
+  color: bisque;
 }
