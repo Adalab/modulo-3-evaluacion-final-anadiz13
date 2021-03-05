@@ -11,7 +11,7 @@ import { Route, Switch } from "react-router-dom";
 const App = () => {
   const [characters, setCharacters] = useState([]);
   const [name, setName] = useState("");
-  const [especie, setEspecie] = useState("");
+  const [specie, setEspecie] = useState("");
   // ("contendra el vslor unico de lo que escriba la usuaria") //usestate almacena el estado del componente. contiene unarray vacio hasta que nos lleguen los datos de la api
 
   //useffect se usa para la inicialización de variables, llamadas a APIs.un hook que recibe como parámetro una función que se ejecutará cada vez que nuestro componente se renderice, ya sea por un cambio de estado, por recibir props nuevas o, y esto es importante, porque es la primera vez que se monta.
@@ -19,17 +19,24 @@ const App = () => {
     //console.log(getDataFromApi());
     GetDataFromApi().then((data) => setCharacters(data)); //son los datos que hemos limpiado y que le pasamos a la API. cuando lo tengo guardado en el estado se lo tengo quepasar al listado para que lo pinte por props.
   }, []); //paso el array vacio para que se ejecute una sola vez y no todo el rato
-  const handleFilter = (inputChange) => {
+  const handleFilter = (inputChange, targetValue) => {
     //targetName, targetValue
-    if (inputChange === `targetName`) {
-      setName(inputChange.targetValue);
-    } else if (inputChange === "targetEspecie") {
-      setEspecie(inputChange.targetValue);
+    console.log(inputChange, targetValue);
+    if (inputChange === `name`) {
+      setName(targetValue);
+    } else if (inputChange === "specie") {
+      setEspecie(targetValue);
     }
   };
-  const FilterCharacters = characters.filter((character) => {
-    return character.name.toUpperCase().includes(name.toUpperCase());
-  });
+  const FilterCharacters = characters
+    .filter((character) => {
+      return character.name.toUpperCase().includes(name.toUpperCase());
+    })
+    .filter((character) => {
+      return character.especies.toUpperCase().includes(specie.toUpperCase());
+    });
+
+  console.log(FilterCharacters);
 
   const renderCharacterDetail = (routerProps) => {
     const id = routerProps.match.params.charactertId;
@@ -50,7 +57,7 @@ const App = () => {
         {/* // ejercicios-en-clase-l >>> rutas dinamicas * renderiza el componente {renderCharacterDetail} cuando  la ruta cumpla el patron/character/:charactertId" */}
         <Switch>
           <Route exact path="/">
-            <Filters handleFilter={handleFilter} />
+            <Filters name={name} handleFilter={handleFilter} />
             <CharacterList characters={FilterCharacters} />
           </Route>
           <Route

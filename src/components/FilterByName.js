@@ -10,6 +10,7 @@ const FilterByName = (props) => {
         className="form__input"
         type="text"
         name="name"
+        value={props.name}
         onChange={handleChange}
       />
     </>

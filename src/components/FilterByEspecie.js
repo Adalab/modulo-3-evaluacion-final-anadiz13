@@ -1,7 +1,7 @@
 import React from "react";
 const FilterByEspecie = (props) => {
   const handleChange = (ev) => {
-    props.handleFilter(ev.target.especie, ev.target.value);
+    props.handleFilter(ev.target.name, ev.target.value);
   };
   return (
     <>
@@ -9,7 +9,7 @@ const FilterByEspecie = (props) => {
       <input
         className="form__especie"
         type="text"
-        name="name"
+        name="specie"
         onChange={handleChange}
       />
     </>

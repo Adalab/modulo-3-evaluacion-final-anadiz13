@@ -6,10 +6,12 @@ const GetDataFromApi = () => {
       return data.results.map((character) => {
         return {
           id: character.id,
-          type: character.type,
           name: character.name,
           image: character.image,
-          especie: character.especies,
+          status: character.status,
+          origin: character.origin.name,
+          episode: character.episode,
+          especies: character.species,
         };
       });
     });
