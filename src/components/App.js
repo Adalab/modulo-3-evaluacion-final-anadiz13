@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import Header from "./Header";
 import "../stylesheets/App.scss";
 import CharacterList from "./CharacterList";
@@ -18,28 +19,26 @@ const App = () => {
     //console.log(getDataFromApi());
     GetDataFromApi().then((data) => setCharacters(data)); //son los datos que hemos limpiado y que le pasamos a la API. cuando lo tengo guardado en el estado se lo tengo quepasar al listado para que lo pinte por props.
   }, []); //paso el array vacio para que se ejecute una sola vez y no todo el rato
-  const handleFilter = (inputChange) => { //targetName, targetValue
-    if (inputChange ===`targetName`) {
-      setName (inputChange.targetValue);    }
-    else  (inputChange ==='targetEspecie'); {
+  const handleFilter = (inputChange) => {
+    //targetName, targetValue
+    if (inputChange === `targetName`) {
+      setName(inputChange.targetValue);
+    } else if (inputChange === "targetEspecie") {
       setEspecie(inputChange.targetValue);
-  }
-
-};
+    }
+  };
   const FilterCharacters = characters.filter((character) => {
     return character.name.toUpperCase().includes(name.toUpperCase());
   });
 
-  {
-    
-    const renderCharacterDetail = (routerProps) =>  
-    const id = props.match.params.id;
-    const selectUser = users.find( user =>{
-      return user.id === id;
-    })
-    return <UserDetail user ={selectUser}/>
-  }
-  }
+  const renderCharacterDetail = (routerProps) => {
+    const id = routerProps.match.params.charactertId;
+    const selectCharacter = characters.find((character) => {
+      return character.id === parseInt(id);
+    });
+    return <CharacterDetail character={selectCharacter} />;
+  };
+
   return (
     <>
       <h1 className="title__list">Listado de Personajes</h1>
@@ -50,17 +49,15 @@ const App = () => {
       <div>
         {/* // ejercicios-en-clase-l >>> rutas dinamicas * renderiza el componente {renderCharacterDetail} cuando  la ruta cumpla el patron/character/:charactertId" */}
         <Switch>
-          <Route path="/characters">
-            <CharacterList characters={characters} />
+          <Route exact path="/">
+            <Filters handleFilter={handleFilter} />
+            <CharacterList characters={FilterCharacters} />
           </Route>
           <Route
             path="/character/:charactertId"
             render={renderCharacterDetail}
           />
         </Switch>
-
-        <Filters handleFilter={handleFilter} />
-        <CharacterList characters={FilterCharacters} />
       </div>
     </>
   );
