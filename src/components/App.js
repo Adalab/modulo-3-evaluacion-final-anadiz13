@@ -28,6 +28,14 @@ const App = () => {
     .filter((character) => {
       return character.name.toUpperCase().includes(name.toUpperCase());
     })
+    .sort(function (a, z) {
+      if (a.name > z.name) {
+        return 1;
+      } else if (a.name < z.name) {
+        return -1;
+      }
+      return 0;
+    })
     .filter((character) => {
       return character.especies.toUpperCase().includes(specie.toUpperCase());
     });
