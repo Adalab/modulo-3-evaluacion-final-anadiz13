@@ -4,11 +4,19 @@
   box-sizing: border-box;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-// .App {
-//   width: 100%;
-//   list-style: none;
-//   background-color: rgb(236, 75, 102);
-// }
+
+.list__character {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.header__img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 .title__list {
   font-size: 25px;
@@ -16,14 +24,6 @@
   text-align: center;
 }
 
-// }
-// .container {
-//   margin: 40px 12vw;
-//   border-radius: 30px;
-//   padding-bottom: 20px;
-// }
-
-//characterCard
 .list__cards {
   display: flex;
   flex-wrap: wrap;
@@ -32,15 +32,31 @@
   background-color: coral;
 }
 .form__input {
-  border: cadetblue;
-  background-color: coral;
+  border: coral solid 1px;
+  padding: 10px 10px 10px 10px;
+  margin-bottom: 10px;
 }
 
-.card__title {
-  padding: 40px;
-  text-align: center;
-  color: bisque;
+.label__input {
+  padding: 10px 10px 10px 10px;
 }
+
+.label__especie {
+  padding: 10px 10px 10px 10px;
+  margin-left: 15px;
+}
+.form__especie {
+  border: coral solid 1px;
+  padding: 10px 10px 10px 10px;
+  margin-bottom: 10px;
+}
+.link__return {
+  text-decoration: none;
+  background-color: cornflowerblue;
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+
 .card__title {
   padding: 40px;
   text-align: center;

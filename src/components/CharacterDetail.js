@@ -15,8 +15,7 @@ const CharacterDetail = (props) => {
         />
         <h3 className="card__title">Name{props.character.name}</h3>
         <p className="card__description">Estatus{props.character.status}</p>
-        {/* if (status !== `alive`) {
-        }  ;*/}
+
         <p className="card__description">Origen{props.character.origin}</p>
         <p className="card__description">
           Episodios: {props.character.episode.length}

@@ -3,7 +3,6 @@ import React from "react";
 const CharacterCard = (props) => {
   return (
     <>
-      {/* añadir por aquí un Link que vaya /detail/props...id */}
       <img
         className="card__image"
         src={props.character.image}

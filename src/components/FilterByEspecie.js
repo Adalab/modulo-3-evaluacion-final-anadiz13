@@ -5,7 +5,9 @@ const FilterByEspecie = (props) => {
   };
   return (
     <>
-      <label htmlFor="especie">Filtrar por especie</label>
+      <label clasName="label__especie" htmlFor="especie">
+        Filtrar por especie
+      </label>
       <input
         className="form__especie"
         type="text"
