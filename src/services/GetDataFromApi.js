@@ -12,6 +12,7 @@ const GetDataFromApi = () => {
           origin: character.origin.name,
           episode: character.episode,
           especies: character.species,
+          location: character.location.name,
         };
       });
     });

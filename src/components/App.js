@@ -12,6 +12,7 @@ const App = () => {
   const [characters, setCharacters] = useState([]);
   const [name, setName] = useState("");
   const [specie, setEspecie] = useState("");
+  const [location, setLocation] = useState("");
 
   useEffect(() => {
     GetDataFromApi().then((data) => setCharacters(data));
@@ -22,11 +23,16 @@ const App = () => {
       setName(targetValue);
     } else if (inputChange === "specie") {
       setEspecie(targetValue);
+    } else if (inputChange === "location") {
+      setLocation(targetValue);
     }
   };
   const FilterCharacters = characters
     .filter((character) => {
       return character.name.toUpperCase().includes(name.toUpperCase());
+    })
+    .filter((character) => {
+      return character.location.toUpperCase().includes(location.toUpperCase());
     })
     .sort(function (a, z) {
       if (a.name > z.name) {
